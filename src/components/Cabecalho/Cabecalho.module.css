@@ -32,6 +32,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 1rem;
 }
 
 .topo h1 a:hover,
@@ -48,6 +49,7 @@
   /* @media screnn and () */
   .topo div {
     flex-direction: row;
+    padding-bottom: 0;
   }
 
   .topo img {
