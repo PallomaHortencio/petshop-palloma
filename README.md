@@ -54,3 +54,9 @@ telas de até o tamanho x (max-width)
    `import {NavLink} from "react-router-dom";`
 
 2. Substituir a tag `<a>` pelo `<NavLink>` e o atributo `href` por `to`
+
+### Criação de um componente de interface chamado caixa
+
+Em vez de usar uma ``<div>` em cada página agrupando conteúdos diferentes, isolamos ela num componente genérico (**Caixa**), aplicamos o CSS uma única vez usando módulo do componente, e programamos através de `props` o carregamento dinâmico do conteúdo (**children**) e de classes adicionais (**listaDeClasses**)
+
+**Dica:** você pode usar **destructuring** de objetos nas `props`!
