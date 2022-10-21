@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import Produtos from "./pages/Produtos/Produtos";
 import Sobre from "./pages/Sobre/Sobre";
 import Contato from "./pages/Contato/Contato";
-import Pagina404 from "./pages/Pagina404/Pagina404";
+import Pagina404 from "./pages/error/Pagina404";
 
 const App = () => {
   return (
@@ -31,7 +31,7 @@ const App = () => {
             </Route>
 
             <Route path="*">
-              <Pagina404></Pagina404>
+              <Pagina404 />
             </Route>
           </Switch>
         </main>
