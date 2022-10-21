@@ -1,11 +1,12 @@
 import estilos from "./Produtos.module.css";
+import Caixa from "../../components/Caixa/Caixa";
 
 const Produtos = () => {
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Conheça nossos produtos</h2>
 
-      <div id="produtos" className={estilos.produtos}>
+      <Caixa id="produtos" className={estilos.produtos}>
         <article>
           <h3>Cama</h3>
           <p>Caminha para o seu pet dormir confortável.</p>
@@ -21,7 +22,7 @@ const Produtos = () => {
             macio.
           </p>
         </article>
-      </div>
+      </Caixa>
     </section>
   );
 };
