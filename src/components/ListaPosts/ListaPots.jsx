@@ -30,36 +30,13 @@ const ListaPosts = () => {
 
   return (
     <div className={estilos.lista_posts}>
-      <article className={estilos.post}>
-        <h3>Título</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-          exercitationem, amet voluptas reprehenderit qui.
-        </p>
-      </article>
-      <article className={estilos.post}>
-        <h3>Título</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-          exercitationem, amet voluptas reprehenderit qui.
-        </p>
-      </article>
-      <article className={estilos.post}>
-        <h3>Título</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-          exercitationem, amet voluptas reprehenderit qui.
-        </p>
-      </article>
-      <article className={estilos.post}>
-        <h3>Título</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-          exercitationem, amet voluptas reprehenderit qui.
-        </p>
-      </article>
+      {posts.map(({ id, titulo, subtitulo }) => (
+        <article className={estilos.post}>
+          <h3>{titulo}</h3>
+          <p>{subtitulo}</p>
+        </article>
+      ))}
     </div>
   );
 };
-
 export default ListaPosts;
