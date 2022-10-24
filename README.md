@@ -60,3 +60,33 @@ telas de até o tamanho x (max-width)
 Em vez de usar uma ``<div>` em cada página agrupando conteúdos diferentes, isolamos ela num componente genérico (**Caixa**), aplicamos o CSS uma única vez usando módulo do componente, e programamos através de `props` o carregamento dinâmico do conteúdo (**children**) e de classes adicionais (**listaDeClasses**)
 
 **Dica:** você pode usar **destructuring** de objetos nas `props`!
+
+## Usando uma api fake para simular processos de consumo de dados dinâmicos
+
+# Instalação global do pacote JSON-SERVER
+
+`npm install -g json-server`
+
+Obs.: se tiver problemas ao executar, utilize o **Node.js comand prompt**
+
+### utilização de um arquivo.json para simular a base de dados da api
+
+É necessario criar um **arquivo.json** em qualquer pasta em sua máquina (no nosso caso, usamos a própria pasta raiz de petshop.). Este arquivo deve ser composto por um grande objeto contendo arrays com outros objetos.
+
+# Execução do servidor da api
+
+1. Usando o **Node.js comand prompt**, aacesse a pasta onde está o **arquivo.json**
+
+2. Execute o comando `json-server --watch db.json --port 2112`
+
+Obs.: o número da porta deve ser diferente de 3000 (que é padrão no json-server) pois esta porta já estará sendo usada pelo app **React**.
+
+Dica: no **package.json** do seu app adicione em `scripts` uma nova propreidade chamada `api` valendo `json-server --watch db.json --port 2112`. Desta forma, você poderá executar o server da API digitando simplismente `npm rum api`
+
+Após a execucação da API, cada array de objetos contido no **arquivo.json** se torna um `endpoint` da API, acessível através da URL _localhost:porta/nome-do-endpoint_.
+
+Exemplos:
+
+`http://localhost:2112/posts`
+`http://localhost:2112/categorias`
+`http://localhost:2112/contatos`
