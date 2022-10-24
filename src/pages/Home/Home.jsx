@@ -1,5 +1,5 @@
 import estilos from "./Home.module.css";
-import ListaPosts from "../../components/ListaPosts/ListaPots";
+import ListaPosts from "../../components/ListaPosts/ListaPosts";
 
 const Home = () => {
   return (
