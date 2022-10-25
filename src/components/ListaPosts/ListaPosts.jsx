@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"; // Hooks do react (funções)
 const ListaPosts = () => {
   /* Iniciamos o state do componente com um array vazio, para posteriormente "preenchê-lo" com os dados vindos da API. Esta atribuição será feita com auxilio de setPosts */
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   /* console.log(serverApi);
   const postsTemp = []; */
@@ -15,6 +16,7 @@ const ListaPosts = () => {
         const resposta = await fetch(`${serverApi}/posts`);
         const dados = await resposta.json();
         setPosts(dados);
+        setLoading(false);
       } catch (error) {
         console.log("Deu ruim! " + error.message);
       }
@@ -22,16 +24,11 @@ const ListaPosts = () => {
     getPosts();
   }, []);
 
-  /* Sobre o useEffect
-  Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente
-  
-  Recebe dois parametros:
-  1º: função callback com o que será executado
-  2º: lista de dependências que indicarão ao useEffect quando ele deverá funcionar
-  
-  - se não passar a lista (ou seja, se deixar sem []), useEffect executará toda vez que o componente for renderizado. Portanto, o callback se torna um loop infinito.
-  
-  - se passar a lista vazia (ou seja, deixar o []* vazio) useEffect executará somente no momento que o componente é renderizado pela primeira vez, evitando o loop infinito do callback. */
+  if (loading) {
+    return <mark>Carregando...</mark>;
+  } else {
+    return <mark>Carregado!</mark>;
+  }
 
   return (
     <div className={estilos.lista_posts}>
