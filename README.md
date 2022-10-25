@@ -91,13 +91,15 @@ Exemplos:
 `http://localhost:2112/categorias`
 `http://localhost:2112/contatos`
 
-Sobre o useEffect
+## Sobre o useEffect
+
 Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente
 
-Recebe dois parametros:
+## Recebe dois parametros:
+
 1º: função callback com o que será executado
 2º: lista de dependências que indicarão ao useEffect quando ele deverá funcionar
 
 - se não passar a lista (ou seja, se deixar sem []), useEffect executará toda vez que o componente for renderizado. Portanto, o callback se torna um loop infinito.
 
-- se passar a lista vazia (ou seja, deixar o []\_ vazio) useEffect executará somente no momento que o componente é renderizado pela primeira vez, evitando o loop infinito do callback.
+- se passar a lista vazia (ou seja, deixar o [] vazio) useEffect executará somente no momento que o componente é renderizado pela primeira vez, evitando o loop infinito do callback.
