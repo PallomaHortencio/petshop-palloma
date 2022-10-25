@@ -81,7 +81,7 @@ Obs.: se tiver problemas ao executar, utilize o **Node.js comand prompt**
 
 Obs.: o número da porta deve ser diferente de 3000 (que é padrão no json-server) pois esta porta já estará sendo usada pelo app **React**.
 
-Dica: no **package.json** do seu app adicione em `scripts` uma nova propreidade chamada `api` valendo `json-server --watch db.json --port 2112`. Desta forma, você poderá executar o server da API digitando simplismente `npm rum api`
+Dica: no **package.json** do seu app adicione em `scripts` uma nova propreidade chamada `api` valendo `json-server --watch db.json --port 2112`. Desta forma, você poderá executar o server da API digitando simplismente `npm run api`
 
 Após a execucação da API, cada array de objetos contido no **arquivo.json** se torna um `endpoint` da API, acessível através da URL _localhost:porta/nome-do-endpoint_.
 

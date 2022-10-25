@@ -1,6 +1,7 @@
 import estilos from "./ListaPosts.module.css";
 import serverApi from "../../api/servidor-api";
 import { useEffect, useState } from "react"; // Hooks do react (funções)
+import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 
 const ListaPosts = () => {
   /* Iniciamos o state do componente com um array vazio, para posteriormente "preenchê-lo" com os dados vindos da API. Esta atribuição será feita com auxilio de setPosts */
@@ -25,9 +26,7 @@ const ListaPosts = () => {
   }, []);
 
   if (loading) {
-    return <mark>Carregando...</mark>;
-  } else {
-    return <mark>Carregado!</mark>;
+    return <LoadingDesenho />;
   }
 
   return (
