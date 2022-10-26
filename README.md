@@ -48,6 +48,16 @@ telas de até o tamanho x (max-width)
 
 **Obs.:** não coloque nada além de `<Route>` no `<Switch>`
 
+#### Sintaxe alternativa para aplicar rotas:
+
+`<Route exact path="/" component={Home}>`
+
+`<Route path="/produtos" component={Produtos}>`
+
+`<Route path="/sobre" component={Sobre}>`
+
+`<Route path="/contato" component={Contato}>`
+
 ### Menu.jsx
 
 1. Importar o NavLink
@@ -91,6 +101,12 @@ Exemplos:
 `http://localhost:2112/categorias`
 `http://localhost:2112/contatos`
 
+## React Hooks
+
+Introduzidos na versão React 16.8, são funções que permitem manipular estados e outros recursos do React sem a necessidade de programar Classes. **Hooks** são funções que se conectam aos estados do React e aos recursos do ciclo de vida dos componentes da função. _Não funcionam dentro de classes_.
+
+Mais informações: <https://www.javatpoint.com/react-hooks>
+
 ## Sobre o useEffect
 
 Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente
@@ -103,3 +119,9 @@ Este hook visa permitir um maior controle sobre "efeitos colaterais" na execuç�
 - se não passar a lista (ou seja, se deixar sem []), useEffect executará toda vez que o componente for renderizado. Portanto, o callback se torna um loop infinito.
 
 - se passar a lista vazia (ou seja, deixar o [] vazio) useEffect executará somente no momento que o componente é renderizado pela primeira vez, evitando o loop infinito do callback.
+
+## CSS: uso da pseudo-classe :has()
+
+https://css-tricks.com/the-css-has-selector/
+
+https://webkit.org/blog/13096/css-has-pseudo-class/
