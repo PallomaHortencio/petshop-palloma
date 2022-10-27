@@ -25,10 +25,10 @@ const ListaCategorias = () => {
         /* await aguarda o termino do fetch, para depois atribuir o resultado */
         const resposta = await fetch(`${serverApi}/categorias`);
         const dados = await resposta.json();
+        setLoading(false);
 
         /* Precisamos passar os dados capturador da API para o state do componente via Setter (obrigatório) */
         setCategorias(dados);
-        setLoading(false);
       } catch (error) {
         console.log("Deu ruim! " + error.message);
       }
@@ -46,7 +46,7 @@ const ListaCategorias = () => {
         {categorias.map(({ id, nome }) => {
           return (
             <li key={id}>
-              <Link to="">{nome}</Link>
+              <Link to={`/categorias/${nome}`}>{nome}</Link>
             </li>
           );
         })}
