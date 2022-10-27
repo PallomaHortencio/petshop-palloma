@@ -7,6 +7,7 @@ import Sobre from "./pages/Sobre/Sobre";
 import Contato from "./pages/Contato/Contato";
 import Pagina404 from "./pages/error/Pagina404";
 import Post from "./pages/Post/Post";
+import Categorias from "./pages/Categoria/Categoria";
 
 const App = () => {
   return (
@@ -27,6 +28,11 @@ const App = () => {
 
             <Route path="/posts/:id">
               <Post />
+            </Route>
+
+            {/* Estamos usando o :nome em vez de :id com o propósito de ter uma URL amigável (slug) */}
+            <Route path="/categoria/:nome">
+              <Categorias />
             </Route>
 
             <Route path="/produtos">
