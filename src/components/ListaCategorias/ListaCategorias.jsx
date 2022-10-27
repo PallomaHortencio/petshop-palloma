@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import serverApi from "../../api/servidor-api";
 import estilos from "./ListaCategorias.module.css";
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ListaCategorias = () => {
   /* Atribuição do useState para manipular os dados do componente
@@ -25,10 +25,10 @@ const ListaCategorias = () => {
         /* await aguarda o termino do fetch, para depois atribuir o resultado */
         const resposta = await fetch(`${serverApi}/categorias`);
         const dados = await resposta.json();
-        setLoading(false);
 
         /* Precisamos passar os dados capturador da API para o state do componente via Setter (obrigatório) */
         setCategorias(dados);
+        setLoading(false);
       } catch (error) {
         console.log("Deu ruim! " + error.message);
       }
@@ -46,7 +46,13 @@ const ListaCategorias = () => {
         {categorias.map(({ id, nome }) => {
           return (
             <li key={id}>
-              <Link to={`/categoria/${nome}`}>{nome}</Link>
+              <NavLink
+                activeClassName={estilos.ativo}
+                exact
+                to={`/categoria/${nome}`}
+              >
+                {nome}
+              </NavLink>
             </li>
           );
         })}

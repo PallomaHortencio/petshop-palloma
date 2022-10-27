@@ -16,6 +16,10 @@ const ListaPosts = (props) => {
     async function getPosts() {
       try {
         /*  const resposta = await fetch(`${serverApi}/posts`); */
+
+        /* Solução Guilherme
+        const resposta = await fetch(`${serverApi}/${props.url || "posts"}`); */
+
         const resposta = await fetch(`${serverApi}/${props.url || "posts"}`);
         const dados = await resposta.json();
         setPosts(dados);
