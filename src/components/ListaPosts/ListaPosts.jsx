@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"; // Hooks do react (funções)
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
 
-const ListaPosts = () => {
+const ListaPosts = (props) => {
   /* Iniciamos o state do componente com um array vazio, para posteriormente "preenchê-lo" com os dados vindos da API. Esta atribuição será feita com auxilio de setPosts */
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,8 @@ const ListaPosts = () => {
   useEffect(() => {
     async function getPosts() {
       try {
-        const resposta = await fetch(`${serverApi}/posts`);
+        /*  const resposta = await fetch(`${serverApi}/posts`); */
+        const resposta = await fetch(`${serverApi}/${props.url || "posts"}`);
         const dados = await resposta.json();
         setPosts(dados);
         setLoading(false);
@@ -24,7 +25,9 @@ const ListaPosts = () => {
       }
     }
     getPosts();
-  }, []);
+    /* É necessário indicar a url como dependência pois ela muda toda vez em que a categoria é clicada.
+    Desta forma, o useEffect "entende" que ele deve executar novamente as suas ações, (neste caso, executar novamente o fetch na API) */
+  }, [props.url]);
 
   if (loading) {
     return <LoadingDesenho />;

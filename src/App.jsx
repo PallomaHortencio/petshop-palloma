@@ -31,7 +31,7 @@ const App = () => {
             </Route>
 
             {/* Estamos usando o :nome em vez de :id com o propósito de ter uma URL amigável (slug) */}
-            <Route path="/categoria/:nome">
+            <Route exact path="/categoria/:nome">
               <Categorias />
             </Route>
 
