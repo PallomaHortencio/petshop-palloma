@@ -25,10 +25,10 @@ const ListaCategorias = () => {
         /* await aguarda o termino do fetch, para depois atribuir o resultado */
         const resposta = await fetch(`${serverApi}/categorias`);
         const dados = await resposta.json();
+        setLoading(false);
 
         /* Precisamos passar os dados capturador da API para o state do componente via Setter (obrigatório) */
         setCategorias(dados);
-        setLoading(false);
       } catch (error) {
         console.log("Deu ruim! " + error.message);
       }
@@ -36,9 +36,7 @@ const ListaCategorias = () => {
     getCategorias();
   }, []);
 
-  if (loading) {
-    return <LoadingDesenho />;
-  }
+  if (loading) return <LoadingDesenho texto="categorias..." />;
 
   return (
     <div className={estilos.lista_categorias}>
