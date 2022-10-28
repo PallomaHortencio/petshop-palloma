@@ -25,6 +25,7 @@ const ListaCategorias = () => {
         /* await aguarda o termino do fetch, para depois atribuir o resultado */
         const resposta = await fetch(`${serverApi}/categorias`);
         const dados = await resposta.json();
+        setLoading(false);
 
         /* Precisamos passar os dados capturador da API para o state do componente via Setter (obrigatório) */
         setCategorias(dados);
@@ -45,7 +46,6 @@ const ListaCategorias = () => {
             <li key={id}>
               <NavLink
                 activeClassName={estilos.ativo}
-                exact
                 to={`/categoria/${nome}`}
               >
                 {nome}
