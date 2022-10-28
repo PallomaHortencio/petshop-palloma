@@ -28,7 +28,6 @@ const ListaCategorias = () => {
 
         /* Precisamos passar os dados capturador da API para o state do componente via Setter (obrigatório) */
         setCategorias(dados);
-        setLoading(false);
       } catch (error) {
         console.log("Deu ruim! " + error.message);
       }
@@ -36,9 +35,7 @@ const ListaCategorias = () => {
     getCategorias();
   }, []);
 
-  if (loading) {
-    return <LoadingDesenho />;
-  }
+  if (loading) return <LoadingDesenho texto="categorias..." />;
 
   return (
     <div className={estilos.lista_categorias}>
