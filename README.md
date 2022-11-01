@@ -125,3 +125,15 @@ Este hook visa permitir um maior controle sobre "efeitos colaterais" na execuç�
 https://css-tricks.com/the-css-has-selector/
 
 https://webkit.org/blog/13096/css-has-pseudo-class/
+
+## Tornando o app React em uma aplicação instalável no dispositivo (PWA)
+
+### Configurar arquivo manifest.json
+
+Um **arquivo de manifesto** é um arquivo JSON contendo informações sobre seu aplicativo web e, quando combinado com um **Service Worker**, permite a instalação do aplicativo em qualquer dispositivo compátivel.
+
+### Configurar/Programar um Service Worker JavaScript
+
+Um **Service Worker** (Trabalhador/Manipulador de Serviços) é um script que o navegador executa em segundo plano separado da apliacação web, possibilitando recursos que não precisam de uma página ou interações com o usuário.
+
+O Service Worker está no centro de muitos recursos das chamadas **PWAs (Progressive Web Applications)**, tais como: cache offline sincronizado em segundo plano, notificações, execução independente do navegador mobile etc.
