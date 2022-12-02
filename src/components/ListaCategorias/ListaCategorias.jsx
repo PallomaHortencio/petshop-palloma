@@ -23,12 +23,22 @@ const ListaCategorias = () => {
     async function getCategorias() {
       try {
         /* await aguarda o termino do fetch, para depois atribuir o resultado */
-        const resposta = await fetch(`${serverApi}/categorias`);
+        const resposta = await fetch(`${serverApi}/categorias.json`);
         const dados = await resposta.json();
+        const listaDeCategorias = [];
+
+        for (const categoria in dados) {
+          const objetoCategoria = {
+            id: categoria,
+            nome: dados[categoria].nome,
+          };
+          listaDeCategorias.push(objetoCategoria);
+        }
+
         setLoading(false);
 
         /* Precisamos passar os dados capturador da API para o state do componente via Setter (obrigatório) */
-        setCategorias(dados);
+        setCategorias(listaDeCategorias);
       } catch (error) {
         console.log("Deu ruim! " + error.message);
       }

@@ -14,7 +14,7 @@ const Categoria = () => {
 
       <ListaCategorias />
 
-      <ListaPosts url={`posts?categoria=${nome}`} />
+      <ListaPosts categoria={nome} />
     </section>
   );
 };

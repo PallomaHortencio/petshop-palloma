@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"; // Hooks do react (funções)
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
 
-const ListaPosts = ({ url }) => {
+const ListaPosts = ({ categoria }) => {
   /* Iniciamos o state do componente com um array vazio, para posteriormente "preenchê-lo" com os dados vindos da API. Esta atribuição será feita com auxilio de setPosts */
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,6 +40,17 @@ const ListaPosts = ({ url }) => {
           };
 
           listaDePosts.push(objetoPosts);
+
+          /* se categoria for escolhida/clicada */
+          if (categoria) {
+            /* Então vamos fazer uma lista de posts com filtro de categoria */
+
+            /* a cada vez que o loop for é executado, pegamos a categoria de cada post e comparamos com a categoria escolhida pelo usuário */
+            listaDePosts = listaDePosts.filter(
+              /* se esta comparação for verdadeira, guardamos o post na listaPosts. Caso contrário, é descartado pelo filtro */
+              (cadaPost) => cadaPost.categoria === categoria
+            );
+          }
         }
 
         setPosts(listaDePosts);
@@ -51,7 +62,7 @@ const ListaPosts = ({ url }) => {
     getPosts();
     /* É necessário indicar a url como dependência pois ela muda toda vez em que a categoria é clicada.
     Desta forma, o useEffect "entende" que ele deve executar novamente as suas ações, (neste caso, executar novamente o fetch na API) */
-  }, [url]);
+  }, [categoria]);
 
   if (loading) {
     return <LoadingDesenho texto="posts..." />;
