@@ -17,14 +17,14 @@ const Post = () => {
   useEffect(() => {
     async function getPost() {
       try {
-        const resposta = await fetch(`${serverApi}/posts/${id}`);
+        const resposta = await fetch(`${serverApi}/posts/${id}.json`);
         const dados = await resposta.json();
-        console.log(dados);
+        //console.log(dados);
         setPost(dados);
         setLoading(false);
 
         /* verificando se o resultado do objeto de dados possui tamanho zero (ou seja, se ele está vazio, sem dados nenhum) */
-        if (Object.keys(dados).length === 0) {
+        if (!dados) {
           /* Estando, forçamos o redirecionamento numa rota de primeiro nivel que não existe. Com isso, na prática o router traz a pagina404 */
           history.push("/404"); // ou /nao-encontrada
         }
@@ -33,7 +33,7 @@ const Post = () => {
       }
     }
     getPost();
-  }, [id]); /* id é uma dependência para o useEffect */
+  }, [id, history]); /* id é uma dependência para o useEffect */
 
   if (loading) return <LoadingDesenho texto="conteúdo do post..." />;
 
